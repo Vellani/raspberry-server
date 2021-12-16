@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/augments.css" />
+    <title>Guages</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-center">
+        <h5>Guages</h5>
+      </div>
+    </nav>
+    <main>
+      <div class="centered-on-screen">
+        <h3 id="text">This is a value</h3>
+      </div>
+    </main>
+
+    <script src="../js/socket.io.js"></script>
+
+    <script>  
+
+      var socket = io();
+
+      console.log("Connected succesfully to the socket ...");
+      
+      socket.on('update', function(msg) {    
+        console.log(msg)
+        
+        document.getElementById("text").innerHTML = msg;
+
+      })
+
+    </script>
+
+
+  </body>
+</html>
