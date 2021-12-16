@@ -6,8 +6,12 @@ const findIndex =  (req, res) => {
     res.sendFile(path.join(__dirname, '..', "/resourses/templates/index.html"))
 }
 
-const startLooping = (req, res) => {
-    runWithDelay(10);
+const setNewVoltage = (req, res) => {
+    //runWithDelay(10);
+
+    const {voltage} = req.query;
+    io.emit('update', voltage);
+
     res.status(200).send("Starting Countdown")
 }
 
@@ -24,4 +28,4 @@ function runWithDelay(n) {
       }, 1000); 
 }
 
-module.exports = {findIndex, startLooping}
+module.exports = {findIndex, setNewVoltage}

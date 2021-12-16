@@ -3,7 +3,8 @@ const index = require('./routes/index')
 
 // static data
 app.use(express.static('./resourses'))
- 
+app.use(express.urlencoded({extended:false}))
+
 app.use('/', index)
 
 server.listen(port = 8000, () => {
