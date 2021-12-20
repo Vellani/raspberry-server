@@ -14,7 +14,7 @@ smoothness_coeficient = 5
 while True:
     number_list.append(random.randint(0, 10))
 
-    if len(number_list) > 5: number_list.pop(0)
+    if len(number_list) > smoothness_coeficient: number_list.pop(0)
 
     avg = sum(number_list)/len(number_list)
 
